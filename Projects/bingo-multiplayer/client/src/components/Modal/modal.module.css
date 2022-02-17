@@ -1,0 +1,32 @@
+.modalWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #505050;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    /* opacity: 0; */
+    min-width: 400px;
+    min-height: 300px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: fadeInDown 0.8s;
+  }
+
+  .btnClose {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+  
