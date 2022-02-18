@@ -37,8 +37,11 @@
 .video-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	position: absolute;
+    top: 85%;
+    left: 0%;
 	justify-content: center;
-	align-items: start;
+	align-items: center;
 	margin-top: 5rem;
 	background: black;
 }
