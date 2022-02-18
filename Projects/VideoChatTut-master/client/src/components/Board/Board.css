@@ -1,0 +1,31 @@
+.board{
+    text-align:center;
+    margin:auto;
+  }
+
+.board-row{
+    display:flex;
+    justify-content: center;
+    margin-right: 20px;
+    margin-left: 15px;
+  }
+
+  .bingoBtn{
+    height:70px;
+    width:70px;
+    font-size: 40px;
+    background-color: crimson;
+    color: white;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+  }  
+
+  .btn{
+    height:90px;
+    width:90px;
+    text-align: center;
+    font-size: 55px;
+    cursor: pointer;
+  }

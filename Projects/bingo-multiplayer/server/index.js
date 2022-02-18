@@ -15,11 +15,19 @@ app.get("/",(req,res)=>{
 
 const server=http.createServer(app);
 
-const io=socketIO(server);
+const io=socketIO(server,{
+    cors:{
+        origin: "http://localhost:4500/",
+        method: ["GET","POST"]
+    }
+});
 
 io.on("connection",(socket)=>{
     console.log("New Connection");
     socket.on('joined',({name,room},callback)=>{
+
+        socket.emit("me",socket.id);
+
         const {error,user}=addUser({id:socket.id,name,room});
 
         if(error) return callback(error);
@@ -42,7 +50,14 @@ io.on("connection",(socket)=>{
         callback(); 
     });
 
+    socket.on("callUser",(data)=>{
+        io.to(data.userToCall).emit("callUser",{signal: data.signalData, from: data.form, name: data.name});
+    });
+
+    socket.on("answerCall",(data)=>io.to(data.to).emit("callAccepted"),data.signal)
+
     socket.on('disconnect',()=>{
+        socket.broadcast.emit("callEnded");
         console.log("User had left!!!")
     })
 })
